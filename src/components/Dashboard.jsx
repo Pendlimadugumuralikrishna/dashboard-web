@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Chart, registerables } from "chart.js";
 import Fileupload from "./Fileupload.jsx";
+import backendPoint from "../config/backendPoint.js"
 import Display from "./Display.jsx";
 import Login from "./Login.jsx";
 
@@ -20,7 +21,7 @@ function Dashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8082/dashboard", {
+        const response = await axios.get(`${backendPoint}/dasshboard`, {
           withCredentials: true,
         });
         setDashboardData(response.data.data);
@@ -140,7 +141,7 @@ function Dashboard() {
   async function handleLogout() {
     try {
       const response = await axios.post(
-        "http://localhost:8082/auth/logout",
+        `${backendPoint}/auth/logout`,
         {},
         {
           withCredentials: true,

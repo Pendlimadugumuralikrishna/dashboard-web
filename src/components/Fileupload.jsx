@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import backendPoint from "../config/backendPoint.js"
 import axios from 'axios';
 
 const FileUpload = ({ updateUploadedFiles }) => { 
@@ -19,7 +20,7 @@ const FileUpload = ({ updateUploadedFiles }) => {
       const formData = new FormData();
       formData.append('file', file);
 
-      const response = await axios.post('http://localhost:8082/upload', formData, {
+      const response = await axios.post(`${backendPoint}/upload`, formData, {
         withCredentials:true,
         headers: {
           'Content-Type': 'multipart/form-data',
