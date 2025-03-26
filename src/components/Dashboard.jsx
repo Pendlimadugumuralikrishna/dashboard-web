@@ -5,7 +5,6 @@ import Fileupload from "./Fileupload.jsx";
 import backendPoint from "../config/backendPoint.js"
 import Display from "./Display.jsx";
 import Login from "./Login.jsx";
-
 Chart.register(...registerables);
 
 function Dashboard() {
@@ -21,7 +20,8 @@ function Dashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${backendPoint}/dasshboard`, {
+      console.log("backendPoint",backendPoint);
+        const response = await axios.get(`${backendPoint}/dashboard`, {
           withCredentials: true,
         });
         setDashboardData(response.data.data);

@@ -1,5 +1,6 @@
 import axios from "axios";
 import backendPoint from "../config/backendPoint.js"
+
 export const registerUser = async (user) => {
     try {
         const response = await axios.post(`${backendPoint}/auth/register`, user);
@@ -11,6 +12,7 @@ export const registerUser = async (user) => {
 
 export const loginUser = async (user) => {
     try {
+        console.log(backendPoint)
         const response = await axios.post(`${backendPoint}/auth/login`, user,{withCredentials:true});
         console.log("response in the api "+response);
         return response.data;
